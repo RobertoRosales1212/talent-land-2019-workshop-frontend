@@ -6,3 +6,12 @@ before_script:
 script:
   - echo "Antes de la construccion."
   - npm build 
+  
+deploy:
+  provider: pages
+  local_di: TRAVIS_BUILD_DIR
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
